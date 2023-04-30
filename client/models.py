@@ -11,9 +11,12 @@ class ClientDetail(models.Model):
         ('Government','Government')
     ]
     orgCategory=models.CharField(max_length=255,choices=CATEGORY)
-
-
     def __str__(self):
         return self.orgName
     
     
+class CreateCond(models.Model):
+    condDetails=models.CharField(max_length=255)
+    condValue=models.CharField(max_length=255)
+    def __str__(self):
+        return self.condDetails

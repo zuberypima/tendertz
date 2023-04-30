@@ -1,6 +1,7 @@
 from django.db import models
-
+from client.models import CreateCond
 # Create your models here.
+#CreateCond
 
 class TenderReg(models.Model):
     regNo = models.CharField(max_length=255)
@@ -24,11 +25,16 @@ class TenderReg(models.Model):
 
 
 class TenderCond(models.Model):
-      condOne =models.BooleanField(default=False)
+      condName=models.ForeignKey(CreateCond, on_delete=models.DO_NOTHING)
+      condition=models.BooleanField(default=False)
 
-      def updateCondition(self, inputCond):
-           if inputCond >= 0:
-              set.condOne=True
-           else:
-               set.condOne=False
-           self.save()
+    #   def updateCondition(self, inputCond):
+    #        if inputCond >= 0:
+    #           set.condOne=True
+    #        else:
+    #            set.condOne=False
+    #        self.save()
+      def __str__(self):
+        return self.condName
+    
+    
