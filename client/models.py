@@ -16,6 +16,7 @@ class ClientDetail(models.Model):
     
     
 class CreateCond(models.Model):
+    clientDetails=models.ForeignKey(ClientDetail, null=True,blank=True,on_delete=models.DO_NOTHING)
     condDetails=models.CharField(max_length=255)
     condValue=models.CharField(max_length=255)
     def __str__(self):
